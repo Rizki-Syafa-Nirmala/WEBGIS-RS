@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rumahsakit', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_rs');
-            $table->string('alamat')->nullable();
-            $table->string('telepon')->nullable();
-            $table->decimal('latitude', 10, 7);
-            $table->decimal('longitude', 10, 7);
-            $table->string('gambar')->nullable();
-            $table->timestamps();
+        Schema::create('rumah_sakits', function (Blueprint $table) {
+            $table->id();  // Primary key
+            $table->string('nama_rs');  // Nama Rumah Sakit
+            $table->string('amenity');
+            $table->string('alamat');  // Alamat Rumah Sakit
+            $table->decimal('latitude', 10, 6)->nullable();  // Latitude
+            $table->decimal('longitude', 10, 6)->nullable(); // Longitude
+            $table->timestamps();  // Timestamps for created_at and updated_at
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rumahsakit');
+        Schema::dropIfExists('rumah_sakits');
     }
 };

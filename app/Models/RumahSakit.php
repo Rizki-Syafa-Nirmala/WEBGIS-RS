@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class RumahSakit extends Model
 {
     protected $fillable = [
-    'nama',
+    'nama_rs',
+    'amenity',
     'alamat',
-    'no_telp',
     'latitude',
-    'longitude',
-    'gambar'
+    'longitude'
 ];
 
 }
