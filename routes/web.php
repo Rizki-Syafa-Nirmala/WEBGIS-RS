@@ -17,9 +17,5 @@ Route::get('/lokasi', [RumahSakitController::class, 'datatable'])->name('lokasi'
 // Route::get('/import', function () {
 //     return view('importexcel');
 // });
-
-
-
-
 // Route::post('/import-data-rs', [DataRSImportController::class, 'import']);
-
+// punten
