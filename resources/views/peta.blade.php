@@ -246,8 +246,8 @@
         rumahsakit.forEach(function(rumahsakit) {
             // Menggabungkan informasi untuk bindPopup
             var popupContent = '<b>' + rumahsakit.nama_rs + '</b><br>' +
-                            'Alamat: ' + rumahsakit.alamat;
-                            'Amenity: ' + rumahsakit.amenity + '<br>' +
+                            'Alamat: ' + rumahsakit.alamat + '<br>' +
+                            'Amenity: ' + rumahsakit.amenity;
 
             // Menambahkan marker ke peta dan bind popup
             L.marker([rumahsakit.latitude, rumahsakit.longitude])
