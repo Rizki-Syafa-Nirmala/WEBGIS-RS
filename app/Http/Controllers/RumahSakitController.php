@@ -21,4 +21,9 @@ class RumahSakitController extends Controller
         // Passing the correct variable name to the view
         return view('peta', ['rumahsakits' => $rumahSakit]); // Corrected here
     }
+
+    public function datatable(){
+        $rumahsakit = RumahSakit::select( 'id','nama_rs', 'amenity', 'alamat')->paginate(7);
+        return view('lokasi', compact('rumahsakit'));
+    }
 }
