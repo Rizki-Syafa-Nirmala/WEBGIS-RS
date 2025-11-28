@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIS Rumah Sakit Semarang</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* RESET STYLES */
@@ -228,6 +227,8 @@
             </div>
         </div>
     </div>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <script>
         // Inisialisasi peta
@@ -239,12 +240,21 @@
             maxZoom: 19
         }).addTo(map);
 
-        // Menambahkan marker secara manual
-        var marker = L.marker([-6.993, 110.420]).addTo(map);  // Lokasi Semarang
-        marker.bindPopup("<b>RSUD Tugurejo</b><br>Jalan Walisongo No 37, Semarang").openPopup();
+        // Mengambil data rumah sakit dan menambahkan marker
+        var rumahsakit = @json($rumahsakits); // Mengubah data PHP ke format JavaScript
 
-        var marker2 = L.marker([-7.033, 110.465]).addTo(map);  // Lokasi lainnya
-        marker2.bindPopup("<b>RSUD Wongsonegoro</b><br>Jalan Fatmawati No 1, Semarang").openPopup();
+        rumahsakit.forEach(function(rumahsakit) {
+            // Menggabungkan informasi untuk bindPopup
+            var popupContent = '<b>' + rumahsakit.nama_rs + '</b><br>' +
+                            'Alamat: ' + rumahsakit.alamat;
+                            'Amenity: ' + rumahsakit.amenity + '<br>' +
+
+            // Menambahkan marker ke peta dan bind popup
+            L.marker([rumahsakit.latitude, rumahsakit.longitude])
+                .addTo(map)
+                .bindPopup(popupContent); // Menggunakan string HTML yang telah digabungkan
+        });
+
     </script>
 </body>
 

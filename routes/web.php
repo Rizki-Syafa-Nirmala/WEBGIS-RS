@@ -18,6 +18,8 @@ Route::get('/import', function () {
     return view('importexcel');
 });
 
+Route::get('/peta', [RumahSakitController::class, 'index']);
+
 
 Route::post('/import-data-rs', [DataRSImportController::class, 'import']);
 

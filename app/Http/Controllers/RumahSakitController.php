@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\RumahSakit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+
 
 class RumahSakitController extends Controller
 {
@@ -11,9 +13,12 @@ class RumahSakitController extends Controller
     public function index()
     {
         // Ambil semua data rumah sakit dari database
-        $rumahSakit = RumahSakit::all();
+                // Cek apakah data sudah ada di cache
+        $rumahSakit = Cache::remember('rumah_sakit_data', 60, function () {
+            return RumahSakit::select( 'nama_rs', 'latitude', 'longitude', 'amenity', 'alamat')->get();
+        });
 
-        // Kembalikan data dalam format JSON
-        return response()->json($rumahSakit);
+        // Passing the correct variable name to the view
+        return view('peta', ['rumahsakits' => $rumahSakit]); // Corrected here
     }
 }
