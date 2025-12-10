@@ -25,14 +25,18 @@ class DataRSImport implements ToModel, WithHeadingRow
             \Log::warning('Nama Rumah Sakit kosong pada baris:', $row);
             return null;  // Skip baris ini jika nama_rs kosong
         }
-
+        
+            $detail_dokter = !empty($row['detail_dokter']) ? $row['detail_dokter'] : 'Tidak ada data';
+            $fasilitas_unggulan = !empty($row['fasilitas_unggulan']) ? $row['fasilitas_unggulan'] : 'Tidak ada data';
 
         return new RumahSakit([
-            'amenity'   => $row['amenity'],
-            'nama_rs'   => $row['nama_rs'],
-            'alamat'    => $row['alamat'],
-            'latitude'  => $latitude,
-            'longitude' => $longitude,
+            'nama_rs'          => $row['nama_rs'],
+            'detail_dokter'    => $detail_dokter, 
+            'fasilitas_unggulan'=> $fasilitas_unggulan, 
+            'alamat'           => $row['alamat'],
+            'amenity'          => $row['amenity'],
+            'latitude'         => $latitude,
+            'longitude'        => $longitude,
         ]);
     }
 }

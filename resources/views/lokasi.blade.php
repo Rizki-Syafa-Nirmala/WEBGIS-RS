@@ -27,6 +27,8 @@
                     <tr>
                         <th class="px-4 py-3">No</th>
                         <th class="px-4 py-3">Nama Rumah Sakit</th>
+                        <th class="px-4 py-3">Detail Dokter</th>
+                        <th class="px-4 py-3">Fasilitas Unggulan</th>
                         <th class="px-4 py-3">Alamat</th>
                         <th class="px-4 py-3">Amenity</th>
                     </tr>
@@ -40,6 +42,12 @@
                         </td>
                         <td class="px-4 py-3 font-semibold text-blue-600">
                             {{ $rs->nama_rs }}
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-blue-600">
+                            {{ $rs->detail_dokter }}
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-blue-600">
+                            {{ $rs->fasilitas_unggulan }}
                         </td>
                         <td class="px-4 py-3 text-gray-600">
                             {{ $rs->alamat }}

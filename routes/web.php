@@ -14,8 +14,7 @@ Route::get('/', [RumahSakitController::class, 'index'])->name('peta');
 Route::get('/lokasi', [RumahSakitController::class, 'datatable'])->name('lokasi');
 
 // Halaman form untuk mengunggah file
-// Route::get('/import', function () {
-//     return view('importexcel');
-// });
-// Route::post('/import-data-rs', [DataRSImportController::class, 'import']);
-// punten
+Route::get('/import', function () {
+    return view('importexcel');
+});
+Route::post('/import-data-rs', [DataRSImportController::class, 'import']);

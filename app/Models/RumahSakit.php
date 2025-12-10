@@ -8,8 +8,10 @@ class RumahSakit extends Model
 {
     protected $fillable = [
     'nama_rs',
-    'amenity',
+    'detail_dokter',
+    'fasilitas_unggulan',
     'alamat',
+    'amenity',
     'latitude',
     'longitude'
 ];

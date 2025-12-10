@@ -34,6 +34,8 @@
         var popupContent = `
             <b class="text-blue-600">${rs.nama_rs}</b><br>
             <span class="text-sm text-gray-700">Alamat: ${rs.alamat}</span><br>
+            <span class="text-sm">Detail Dokter: ${rs.detail_dokter}</span><br>
+            <span class="text-sm">Fasilitas Unggulan: ${rs.fasilitas_unggulan}</span><br>
             <span class="text-sm">Amenity: ${rs.amenity}</span>
         `;
 
