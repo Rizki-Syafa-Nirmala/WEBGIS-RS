@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rumah_sakits', function (Blueprint $table) {
-            $table->id();  // Primary key
-            $table->string('nama_rs');  // Nama Rumah Sakit
+            $table->id(); 
+            $table->string('nama_rs');  
+            $table->string('detail_dokter');
+            $table->string('fasilitas_unggulan'); 
+            $table->string('alamat'); 
             $table->string('amenity');
-            $table->string('alamat');  // Alamat Rumah Sakit
-            $table->decimal('latitude', 10, 6)->nullable();  // Latitude
-            $table->decimal('longitude', 10, 6)->nullable(); // Longitude
-            $table->timestamps();  // Timestamps for created_at and updated_at
+            $table->decimal('latitude', 10, 6)->nullable();  
+            $table->decimal('longitude', 10, 6)->nullable(); 
+            $table->timestamps();  
         });
     }
 

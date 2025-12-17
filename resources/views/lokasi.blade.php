@@ -31,10 +31,10 @@
             <table class="min-w-full text-sm text-left">
                 <thead class="bg-gray-50 text-gray-700 uppercase tracking-wider text-xs">
                     <tr>
-                        <th class="px-6 py-4 font-semibold">No</th>
-                        <th class="px-6 py-4 font-semibold">Nama Rumah Sakit</th>
-                        <th class="px-6 py-4 font-semibold">Alamat</th>
-                        <th class="px-6 py-4 font-semibold">Amenity</th>
+                        <th class="px-4 py-3">No</th>
+                        <th class="px-4 py-3">Nama Rumah Sakit</th>
+                        <th class="px-4 py-3">Alamat</th>
+                        <th class="px-4 py-3">Amenity</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -47,7 +47,7 @@
                         <td class="px-6 py-4">
                             <div class="font-bold text-gray-800">{{ $rs->nama_rs }}</div>
                         </td>
-                        <td class="px-6 py-4 text-gray-600 max-w-xs truncate">
+                        <td class="px-4 py-3 text-gray-600">
                             {{ $rs->alamat }}
                         </td>
                         <td class="px-6 py-4">
